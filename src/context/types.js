@@ -1,0 +1,2 @@
+export const OPEN_POKEMON = 'OPEN_POKEMON'
+export const CHANGE_SCREEN = 'CHANGE_SCREEN'

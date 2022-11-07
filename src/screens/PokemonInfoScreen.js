@@ -1,11 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import {View, StyleSheet, Text} from 'react-native'
 import { PokemonCard } from "../components/PokemonCard";
+import { PokemonContext } from "../context/pokemonContext";
+import { ScreenContext } from "../context/screen/screenContext";
 
-export const PokemonInfoScreen = props => {
-    return (
+export const PokemonInfoScreen = () => 
+{
+const {pokemons} = useContext(PokemonContext)
+const {pokemonId, changeScreen} = useContext(ScreenContext)
+const pokemon = pokemons.map(item=> item.id === pokemonId)
+    
+return (
 <View>
-    <PokemonCard />
+    <PokemonCard pokemon={pokemon}/>
 </View>
     )
 }
