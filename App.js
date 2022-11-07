@@ -4,37 +4,26 @@ import * as Font from 'expo-font';
 import {} from '@expo/vector-icons'
 import { useEffect, useCallback, useState } from 'react';
 import { PokemonName } from './src/components/PokemonName';
+import { MainScreen } from './src/screens/MainScreen';
+import { PokemonInfoScreen } from './src/screens/PokemonInfoScreen';
 
 export default function App() {
-const [pokemons, SetPokemons] = useState([])
+const [pokemons, setPokemons] = useState([])
+const [pokemonId, setPokemonId] = useState(null)
 
-useEffect(()=> {
-    loadPokemons()
-  }, [])
+let content = (
+<MainScreen pokemons={pokemons} onOpenPokemon={(id)=> {setPokemonId(id)}}/>
+)
 
-const loadPokemons = useCallback(async()=> await fetchPokemons(), [fetchPokemons])
-
-const fetchPokemons = async() => {
-  const response= await fetch('https://pokeapi.co/api/v2/pokemon',
-  {
-    method: "GET",
-    headers: {'Content-Type': 'application/json'}
-  }
-  )
-const data = await response.json()
-console.log(data.results)
+if(pokemonId){
+  content = <PokemonInfoScreen />
 }
-
-
   return (
     <View style={styles.container}>
       <Navbar />
-      <FlatList 
-      data = {pokemons}
-      renderItem = {({item})=> (
-        <PokemonName pokemon={item}/>
-      )}
-      />
+      <View>
+        {content}
+      </View>
     </View>
   );
 }

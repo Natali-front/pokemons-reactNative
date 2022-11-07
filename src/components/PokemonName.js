@@ -1,11 +1,14 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 
 export const PokemonName = ({pokemon}) => {
     return (
-        <View style={styles.item}>
+        <TouchableOpacity 
+        activeOpacity={0.5}
+        onPress = {()=> console.log(pokemon)}
+        style={styles.item}>
             <Text style={styles.name}>{pokemon.name}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 
