@@ -7,7 +7,7 @@ import { PokemonContext } from './context/pokemonContext'
 import { ScreenContext } from './context/screen/screenContext'
 
 export const MainLayout = () => {
-const pokemonsContext = useContext(PokemonContext)
+
 const {pokemonId} = useContext(ScreenContext)
 
  return  <View style={styles.container}>

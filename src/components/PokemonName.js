@@ -5,7 +5,7 @@ export const PokemonName = ({pokemon, onOpen}) => {
     return (
         <TouchableOpacity 
         activeOpacity={0.5}
-        onPress = {() => onOpen(pokemon.id)}
+        onPress = {()=> onOpen(pokemon.id)}
         style={styles.item}>
             <View style={styles.pokNameWrap}>
                 <Text style={styles.name}>{pokemon.name}</Text>
@@ -16,6 +16,7 @@ export const PokemonName = ({pokemon, onOpen}) => {
 
 const styles = StyleSheet.create({
     item:{
+        flexDirection: 'row',
         padding: 10
     },
     name:{

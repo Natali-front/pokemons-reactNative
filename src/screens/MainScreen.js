@@ -15,9 +15,14 @@ export const MainScreen = () => {
     loadPokemons()
   }, [])
   
+  if(error) {
+    return <View style={styles.errorWrapper}><Text>Something is going wrong...</Text></View>
+  }
+
   return (
   <View style={styles.wrapItems}>
-    <FlatList                                                        
+    <FlatList 
+      keyExtractor={item=> item.id}                                                       
       data = {pokemons}
       renderItem = {({item})=> (
         <PokemonName pokemon={item} onOpen={changeScreen}/>
@@ -28,6 +33,9 @@ export const MainScreen = () => {
 }
 const styles = StyleSheet.create({
   wrapItems:{
+  },
+  errorWrapper:{
+    justifyContent: 'center'
   }
 
 })

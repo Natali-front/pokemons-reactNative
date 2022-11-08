@@ -1,28 +1,49 @@
 import React from "react";
-import {View, Text, Button} from 'react-native'
+import {View, Text, Button, StyleSheet, Image} from 'react-native'
 
 
-export const PokemonCard = ({goBack, pokemons}) => {
+export const PokemonCard = ({goBack, pokemonInfo}) => {
     return (
-        <View>
-            <View>
-                <Text>Pokemon's name: {}</Text>
+        <View style={styles.wrap}>
+            
+            <View style={styles.imgWrap}>
+                <Image source={{uri: pokemonInfo.pokeimage}} style={{width: 120, height: 120}}/>
             </View>
             <View>
-                <Text>Pokemon's image: {}</Text>
+                <Text style={{fontSize: 16}}>Pokemon's name: {pokemonInfo.name}</Text>
             </View>
             <View>
                 <Text>Pokemon's type: {}</Text>
             </View>
             <View>
-                <Text>Pokemon's weight: {}</Text>
+                <Text>Pokemon's weight: {pokemonInfo.weight}</Text>
             </View>
             <View>
-                <Text>Pokemon's height: {}</Text>
+                <Text>Pokemon's height: {pokemonInfo.height}</Text>
             </View>
-            <View>
-                <Button onPress={goBack} title='Back'></Button>
+            <View style={styles.btnWrap}>
+                <Button onPress={goBack} title='Back' style={styles.btn}/>
             </View>
         </View>
     )
 }
+const styles = StyleSheet.create({
+    wrap:{
+        width: '100%',
+        justifyContent: 'center',
+        marginLeft: 20
+    },
+    imgWrap: {
+        alignItems: 'center'
+    },
+    btnWrap:{
+        width: '60%',
+        justifyContent: 'center',
+        marginTop: 20,
+        margin: 'auto'
+    },
+    btn:{
+        alignItems: 'center',
+        borderRadius: 2
+    }
+})
