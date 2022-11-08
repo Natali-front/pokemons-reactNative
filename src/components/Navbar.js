@@ -5,7 +5,7 @@ export const Navbar = (props) => {
     return (
         <View style= {styles.navbar}>
             <View>
-                <Text style={styles.text}>Pokemon App</Text>
+                <Text style={styles.text}>Pokemon Catalog</Text>
             </View>
             <View style={styles.wrapImg}>
                 <Image style={styles.image} source={require('../../assets/pokemon-transparent-background-5-min.png')}/>
@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: 90,
-        paddingTop: 30
+        paddingTop: 30,
+        backgroundColor: 'yellow'
     },
     text:{
         fontWeight: '500'

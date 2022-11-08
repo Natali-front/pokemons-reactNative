@@ -6,32 +6,17 @@ import { ScreenContext } from "../context/screen/screenContext";
 
 export const MainScreen = () => {
   
-  const {pokemons} = useContext(PokemonContext)
+  const {pokemons, fetchPokemons, error} = useContext(PokemonContext)
   const {changeScreen} = useContext(ScreenContext)
-  const {fetchPokemons} = useContext(PokemonContext)
-
+  
   const loadPokemons = useCallback(async()=> await fetchPokemons(), [fetchPokemons])
-  // const fetchPokemons = async() => {
-  //     const response= await fetch('https://pokeapi.co/api/v2/pokemon',
-  //     {
-  //       method: "GET",
-  //       headers: {'Content-Type': 'application/json'}
-  //     }
-  //     )
-  //   const data = await response.json()
-  //   const pokemons = Object.keys(data).map(key=>({...data[key], id:key}))
-   
-  // }
-//   useEffect(()=> {
-//     fetch('https://pokeapi.co/api/v2/pokemon')
-//     .then((response) => response.json())
-//     .then((json) => setPokemons(json))
-//     .catch((error) => console.error(error))
-//     .finally(() => setLoading(false));
-// }, []);
 
-    return (
-<View>
+  useEffect(()=> {
+    loadPokemons()
+  }, [])
+  
+  return (
+  <View style={styles.wrapItems}>
     <FlatList                                                        
       data = {pokemons}
       renderItem = {({item})=> (
@@ -42,5 +27,7 @@ export const MainScreen = () => {
     )
 }
 const styles = StyleSheet.create({
+  wrapItems:{
+  }
 
 })

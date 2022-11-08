@@ -1,2 +1,5 @@
 export const OPEN_POKEMON = 'OPEN_POKEMON'
 export const CHANGE_SCREEN = 'CHANGE_SCREEN'
+export const FETCH_POKEMON = 'FETCH_POKEMON'
+export const SHOW_ERROR = 'SHOW_ERROR'
+export const CLEAR_ERROR = 'CLEAR_ERROR'

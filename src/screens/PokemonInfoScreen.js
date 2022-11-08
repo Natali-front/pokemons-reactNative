@@ -12,7 +12,7 @@ const pokemon = pokemons.map(item=> item.id === pokemonId)
     
 return (
 <View>
-    <PokemonCard pokemon={pokemon}/>
+    <PokemonCard pokemon={PokemonContext.pokemons}/>
 </View>
     )
 }

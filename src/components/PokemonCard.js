@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, Button} from 'react-native'
 
 
-export const PokemonCard = ({goBack}) => {
+export const PokemonCard = ({goBack, pokemons}) => {
     return (
         <View>
             <View>
@@ -21,7 +21,7 @@ export const PokemonCard = ({goBack}) => {
                 <Text>Pokemon's height: {}</Text>
             </View>
             <View>
-                <Button onPress={goBack}>Back</Button>
+                <Button onPress={goBack} title='Back'></Button>
             </View>
         </View>
     )
