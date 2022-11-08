@@ -6,7 +6,7 @@ import { screenReducer } from './screenReducer'
 export const ScreenState = ({children}) => {
     const [state, dispatch] = useReducer(screenReducer, null)
     const changeScreen = id => dispatch({type: CHANGE_SCREEN, payload:id})
-    // const fetchToPokemon = id => dispatch({type: FETCH_TO_POKEMON, payload:id})
+  
 
     
 return <ScreenContext.Provider 

@@ -40,7 +40,7 @@ export const PokemonState = ({ children }) => {
     const fetchToPokemon = async (pokemonId) => {
         clearError()
         try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`,
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId.toString()}/`,
                 {
                     method: "GET",
                     headers: { 'Content-Type': 'application/json' }

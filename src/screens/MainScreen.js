@@ -25,7 +25,9 @@ export const MainScreen = () => {
       keyExtractor={item=> item.id}                                                       
       data = {pokemons}
       renderItem = {({item})=> (
-        <PokemonName pokemon={item} onOpen={changeScreen}/>
+        <PokemonName 
+        pokemon={item} 
+        onOpen={changeScreen} />
       )}
       />
 </View>

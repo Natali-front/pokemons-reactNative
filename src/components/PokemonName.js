@@ -6,7 +6,8 @@ export const PokemonName = ({pokemon, onOpen}) => {
         <TouchableOpacity 
         activeOpacity={0.5}
         onPress = {()=> onOpen(pokemon.id)}
-        style={styles.item}>
+        style={styles.item}
+        >
             <View style={styles.pokNameWrap}>
                 <Text style={styles.name}>{pokemon.name}</Text>
             </View>
