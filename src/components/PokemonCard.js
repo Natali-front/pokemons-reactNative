@@ -12,9 +12,9 @@ export const PokemonCard = ({ goBack, pokemonInfo, pokemon }) => {
             <View>
                 <Text style={{ fontSize: 16, textTransform: 'capitalize', marginBottom: 10 }}>Pokemon's name:  {pokemonInfo.name}</Text>
             </View>
-            {/* <View>
-                <Text>Pokemon's type: { }</Text>
-            </View> */}
+            <View>
+                <Text style={{ fontSize: 16, textTransform: 'capitalize', marginBottom: 10 }}>Pokemon's type: { pokemonInfo.type.join(', ')}</Text>
+            </View>
             <View>
                 <Text  style={{ fontSize: 16, textTransform: 'capitalize', marginBottom: 10 }}>Pokemon's weight:  {pokemonInfo.weight}</Text>
             </View>

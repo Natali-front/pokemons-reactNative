@@ -75,7 +75,8 @@ export const PokemonState = ({ children }) => {
                 name: data.name,
                 pokeimage: data.sprites.front_default,
                 weight: data.weight,
-                height: data.height
+                height: data.height,
+                type: data.types.map(item=> item.type.name)                               
             }
             dispatch({ type: FETCH_TO_POKEMON, pokemonInfo })
         }
