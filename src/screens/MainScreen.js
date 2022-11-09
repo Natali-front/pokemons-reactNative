@@ -6,18 +6,21 @@ import { ScreenContext } from "../context/screen/screenContext";
 
 export const MainScreen = () => {
 
-  const { pokemons, fetchPokemons, error, loadMorePokemons } = useContext(PokemonContext)
+  const { pokemons, fetchPokemons, error, loadMorePokemons, nextPage } = useContext(PokemonContext)
   const { changeScreen } = useContext(ScreenContext)
 
   const loadPokemons = useCallback(async () => await fetchPokemons(), [fetchPokemons])
-  const loadMore = useCallback(async() => await loadMorePokemons())
+  const loadMore = useCallback(async() => await loadMorePokemons(nextPage))
 
   useEffect(() => {
     loadPokemons()
   }, [])
 
   useEffect(() => {
-    loadMore()
+    setTimeout(()=>{
+       loadMore()
+    }, 0)
+   
   }, [])
 
   if (error) {
@@ -50,4 +53,3 @@ const styles = StyleSheet.create({
   }
 })
 
-// "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"   pagination

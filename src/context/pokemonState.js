@@ -10,7 +10,7 @@ export const PokemonState = ({ children }) => {
         loading: false,
         error: null,
         pokemonInfo: {},
-        nextPage: ''
+        nextPage: null
     }
     const [state, dispatch] = useReducer(pokemonReducer, initialState)
     const { changeScreen } = useContext(ScreenContext)
@@ -49,7 +49,7 @@ export const PokemonState = ({ children }) => {
                 }
             )
             const data = await response.json()
-            const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(key)+1 }))
+            const pokemons = state.pokemons.concat(Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(state.pokemons.length)+Number(key)+1 })))
             dispatch({ type: FETCH_MORE, pokemons, nextPage })
             console.log(nextPage)
         }
