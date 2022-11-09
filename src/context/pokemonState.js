@@ -9,13 +9,13 @@ export const PokemonState = ({ children }) => {
         pokemons: [],
         loading: false,
         error: null,
-        pokemonInfo:{}
+        pokemonInfo: {}
     }
     const [state, dispatch] = useReducer(pokemonReducer, initialState)
     const { changeScreen } = useContext(ScreenContext)
     const showError = error => dispatch({ type: SHOW_ERROR, error })
     const clearError = () => dispatch({ type: CLEAR_ERROR })
-  
+
 
 
     const fetchPokemons = async () => {
@@ -28,7 +28,7 @@ export const PokemonState = ({ children }) => {
                 }
             )
             const data = await response.json()
-            const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(key)}))
+            const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(key)+1 }))
             dispatch({ type: FETCH_POKEMON, pokemons })
         }
         catch (e) {
@@ -47,14 +47,14 @@ export const PokemonState = ({ children }) => {
                 }
             )
             const data = await response.json()
-        
+
             const pokemonInfo = {
                 name: data.name,
                 pokeimage: data.sprites.front_default,
                 weight: data.weight,
                 height: data.height
             }
-            dispatch({ type: FETCH_TO_POKEMON, pokemonInfo})
+            dispatch({ type: FETCH_TO_POKEMON, pokemonInfo })
         }
         catch (e) {
             showError()
