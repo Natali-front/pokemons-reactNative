@@ -29,7 +29,7 @@ export const PokemonState = ({ children }) => {
                 }
             )
             const data = await response.json()
-            const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(key)+1 }))
+            const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(key) + 1 }))
             const nextPage = data.next
             dispatch({ type: FETCH_POKEMON, pokemons, nextPage })
         }
@@ -39,7 +39,7 @@ export const PokemonState = ({ children }) => {
         }
     }
 
-    const loadMorePokemons = async() => {
+    const loadMorePokemons = async () => {
         clearError()
         try {
             const response = await fetch(state.nextPage,
@@ -49,7 +49,7 @@ export const PokemonState = ({ children }) => {
                 }
             )
             const data = await response.json()
-            const pokemons = state.pokemons.concat(Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(state.pokemons.length)+Number(key)+1 })))
+            const pokemons = state.pokemons.concat(Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(state.pokemons.length) + Number(key) + 1 })))
             const nextPage = data.next
             dispatch({ type: FETCH_MORE, pokemons, nextPage })
         }
@@ -76,7 +76,7 @@ export const PokemonState = ({ children }) => {
                 pokeimage: data.sprites.front_default,
                 weight: data.weight,
                 height: data.height,
-                type: data.types.map(item=> item.type.name)                               
+                type: data.types.map(item => item.type.name)
             }
             dispatch({ type: FETCH_TO_POKEMON, pokemonInfo })
         }

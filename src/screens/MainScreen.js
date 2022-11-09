@@ -34,6 +34,7 @@ export const MainScreen = () => {
         data={pokemons}
         onEndReached={()=>loadMorePokemons()}
         onEndReachedThreshold = {0.5}
+        contentContainerStyle={{alignItems:'center'}}
         renderItem={({ item }) => (
           <PokemonName
             pokemon={item}
@@ -49,7 +50,9 @@ const styles = StyleSheet.create({
   },
   container:{
     marginBottom: 20,
-    alignItems: 'center'
+    paddingLeft: 40,
+    // justifyContent: 'center'
+    // alignItems: 'center'
   }
 })
 

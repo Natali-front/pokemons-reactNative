@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 90,
         paddingTop: 30,
-        backgroundColor: 'yellow'
+        backgroundColor: 'yellow',
+        borderWidth: 0.5
     },
     text:{
         fontWeight: '500'

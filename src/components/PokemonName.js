@@ -18,20 +18,22 @@ export const PokemonName = ({ pokemon, onOpen }) => {
 const styles = StyleSheet.create({
     item: {
         flexDirection: 'row',
-        padding: 10
+        padding: 10,
+       
     },
     name: {
         fontSize: 18,
         fontWeight: '500',
         textTransform: 'uppercase',
-        padding: 5
+        padding: 5,
+        
     },
     pokNameWrap: {
         borderColor: '#000',
         borderWidth: 0.5,
-        borderRadius: 3,
-        width: '90%',
-        alignItems: 'center'
-
+        borderRadius: 10,
+        width: '80%',
+        alignItems: 'center',
+        backgroundColor: '#9fced6'
     }
 })
