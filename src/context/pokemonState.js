@@ -39,10 +39,10 @@ export const PokemonState = ({ children }) => {
         }
     }
 
-    const loadMorePokemons = async(nextPage) => {
+    const loadMorePokemons = async() => {
         clearError()
         try {
-            const response = await fetch(nextPage,
+            const response = await fetch(state.nextPage,
                 {
                     method: "GET",
                     headers: { 'Content-Type': 'application/json' }
@@ -50,8 +50,8 @@ export const PokemonState = ({ children }) => {
             )
             const data = await response.json()
             const pokemons = state.pokemons.concat(Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(state.pokemons.length)+Number(key)+1 })))
+            const nextPage = data.next
             dispatch({ type: FETCH_MORE, pokemons, nextPage })
-            console.log(nextPage)
         }
         catch (e) {
             showError()
