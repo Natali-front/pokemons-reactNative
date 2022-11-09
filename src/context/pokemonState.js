@@ -2,14 +2,15 @@ import React, { useReducer, useContext } from "react";
 import { PokemonContext } from "./pokemonContext";
 import { pokemonReducer } from "./pokemonReducer";
 import { ScreenContext } from "./screen/screenContext";
-import { CLEAR_ERROR, FETCH_POKEMON, SHOW_ERROR, FETCH_TO_POKEMON } from "./types";
+import { CLEAR_ERROR, FETCH_POKEMON, SHOW_ERROR, FETCH_TO_POKEMON, FETCH_MORE } from "./types";
 
 export const PokemonState = ({ children }) => {
     const initialState = {
         pokemons: [],
         loading: false,
         error: null,
-        pokemonInfo: {}
+        pokemonInfo: {},
+        nextPage: ''
     }
     const [state, dispatch] = useReducer(pokemonReducer, initialState)
     const { changeScreen } = useContext(ScreenContext)
@@ -29,12 +30,34 @@ export const PokemonState = ({ children }) => {
             )
             const data = await response.json()
             const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(key)+1 }))
-            dispatch({ type: FETCH_POKEMON, pokemons })
+            const nextPage = data.next
+            dispatch({ type: FETCH_POKEMON, pokemons, nextPage })
         }
         catch (e) {
             showError()
             console.log(e)
         }
+    }
+
+    const loadMorePokemons = async(nextPage) => {
+        clearError()
+        try {
+            const response = await fetch(nextPage,
+                {
+                    method: "GET",
+                    headers: { 'Content-Type': 'application/json' }
+                }
+            )
+            const data = await response.json()
+            const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(key)+1 }))
+            dispatch({ type: FETCH_MORE, pokemons, nextPage })
+            console.log(nextPage)
+        }
+        catch (e) {
+            showError()
+            console.log(e)
+        }
+
     }
 
     const fetchToPokemon = async (pokemonId) => {
@@ -67,8 +90,10 @@ export const PokemonState = ({ children }) => {
             pokemons: state.pokemons,
             error: state.error,
             pokemonInfo: state.pokemonInfo,
+            nextPage: state.nextPage,
             fetchPokemons,
             fetchToPokemon,
+            loadMorePokemons,
             changeScreen
         }}>
         {children}

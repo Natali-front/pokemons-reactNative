@@ -1,12 +1,12 @@
 import React from 'react'
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-export const PokemonName = ({pokemon, onOpen}) => {
+export const PokemonName = ({ pokemon, onOpen }) => {
     return (
-        <TouchableOpacity 
-        activeOpacity={0.5}
-        onPress = {()=> onOpen(pokemon.id)}
-        style={styles.item}
+        <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => onOpen(pokemon.id)}
+            style={styles.item}
         >
             <View style={styles.pokNameWrap}>
                 <Text style={styles.name}>{pokemon.name}</Text>
@@ -16,19 +16,19 @@ export const PokemonName = ({pokemon, onOpen}) => {
 }
 
 const styles = StyleSheet.create({
-    item:{
+    item: {
         flexDirection: 'row',
         padding: 10
     },
-    name:{
+    name: {
         fontSize: 18,
-        fontWeight: '700',
+        fontWeight: '500',
         textTransform: 'uppercase',
-        padding:5
+        padding: 5
     },
-    pokNameWrap:{
-        borderColor: 'black',
-        borderWidth: 1,
+    pokNameWrap: {
+        borderColor: '#000',
+        borderWidth: 0.5,
         borderRadius: 3,
         width: '90%',
         alignItems: 'center'
