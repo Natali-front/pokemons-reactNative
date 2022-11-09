@@ -1,5 +1,5 @@
 import React, {useReducer} from 'react'
-import { CHANGE_SCREEN, FETCH_TO_POKEMON } from '../types'
+import { CHANGE_SCREEN } from '../types'
 import { ScreenContext } from './screenContext'
 import { screenReducer } from './screenReducer'
 
@@ -12,6 +12,6 @@ export const ScreenState = ({children}) => {
 return <ScreenContext.Provider 
     value ={{
         changeScreen,
-        pokemonId:state
+        pokemonId: state
     }}>{children}</ScreenContext.Provider>
 }

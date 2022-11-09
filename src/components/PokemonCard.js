@@ -2,7 +2,7 @@ import React from "react";
 import {View, Text, Button, StyleSheet, Image} from 'react-native'
 
 
-export const PokemonCard = ({goBack, pokemonInfo}) => {
+export const PokemonCard = ({goBack, pokemonInfo, pokemon}) => {
     return (
         <View style={styles.wrap}>
             

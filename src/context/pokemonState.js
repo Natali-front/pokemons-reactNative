@@ -28,7 +28,7 @@ export const PokemonState = ({ children }) => {
                 }
             )
             const data = await response.json()
-            const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: key }))
+            const pokemons = Object.keys(data.results).map(key => ({ ...data.results[key], id: Number(key)}))
             dispatch({ type: FETCH_POKEMON, pokemons })
         }
         catch (e) {

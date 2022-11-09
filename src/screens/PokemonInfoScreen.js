@@ -9,7 +9,7 @@ export const PokemonInfoScreen = () =>
 const {pokemons, pokemonInfo, fetchToPokemon} = useContext(PokemonContext)
 const {pokemonId, changeScreen} = useContext(ScreenContext)
 
-const pokemon = pokemons.map(item=> item.id === pokemonId)
+const pokemon = pokemons.map(item=> item.id + 1 === pokemonId)
 
 const loadPokemons = useCallback(async()=> await fetchToPokemon(pokemonId))
 
