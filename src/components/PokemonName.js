@@ -9,7 +9,7 @@ export const PokemonName = ({ pokemon, onOpen }) => {
             style={styles.item}
         >
             <View style={styles.pokNameWrap}>
-                <Text style={styles.name}>{pokemon.name}{pokemon.id}</Text>
+                <Text style={styles.name}>{pokemon.name}</Text>
             </View>
         </TouchableOpacity>
     )
