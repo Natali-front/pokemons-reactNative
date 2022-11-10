@@ -21,7 +21,7 @@ export const PokemonCard = ({ goBack, pokemonInfo, pokemon }) => {
                     </View>
                     <View style={styles.wrapLine}>
                         <View><Text style={styles.info}>Pokemon's type:</Text></View>
-                        <View><Text style={styles.data}>{pokemonInfo.type.join(', ')}</Text></View>
+                        <View><Text style={styles.data}>{pokemonInfo.type}</Text></View>
                     </View>
                     <View style={styles.wrapLine}>
                         <View><Text style={styles.info}>Pokemon's weight:</Text></View>

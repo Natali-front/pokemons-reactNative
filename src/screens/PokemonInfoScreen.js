@@ -14,10 +14,9 @@ const pokemon = pokemons.map(item=> item.id + 1 === pokemonId)
 const loadPokemons = useCallback(async()=> await fetchToPokemon(pokemonId))
 
 useEffect(()=> {
-    setTimeout(()=> {
+    setTimeout(()=>{
       loadPokemons()  
     }, 0)
-  
 }, [])
 
     

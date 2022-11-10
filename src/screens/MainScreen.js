@@ -17,9 +17,7 @@ export const MainScreen = () => {
   }, [])
 
   useEffect(() => {
-    setTimeout(()=>{
-       loadMore()
-    }, 0)
+   loadMore()
    
   }, [])
 
@@ -50,9 +48,7 @@ const styles = StyleSheet.create({
   },
   container:{
     marginBottom: 20,
-    paddingLeft: 40,
-    // justifyContent: 'center'
-    // alignItems: 'center'
+    paddingLeft: 40
   }
 })
 
